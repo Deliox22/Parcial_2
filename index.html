@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcial-2 Audi</title>
+  <script type="module" src="./src/app.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+
+
+<body>
+  <div id="backBtn">Volver</div>
+  <div id="contentModels">
+    <div class="btnOptionModels custom modelOne">
+      <img src="/assets/2019.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelTwo">
+      <img src="/assets/2021.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelThree">
+      <img src="/assets/2022png.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelFourth">
+      <img src="/assets/2021.png" width="200px">
+      <div class="title"></div>
+    </div>
+  </div>
+  <div id="contentTexture">
+
+    <div class="btnOptionTexture custom textureOne">
+      <img src="/assets/Texturas/0.png" width="300px">
+    </div>
+    <div class="btnOptionTexture custom textureTwo">
+      <img src="/assets/Texturas/1.png" width="300px">
+    </div>
+    <div class="btnOptionTexture custom textureThree">
+      <img src="/assets/Texturas/2.png" width="300px">
+    </div>
+    <div id= "content"> 
+      <div class="video">
+        <video width="700" controls>
+        <source src="/assets/Video/Lana Del Rey - Summertime Sadness _ Car Video _ Audi A5 _ TrapMusicAir.mp4" type="video/mp4">
+        </video>
+        </div>
+    <div class="btnOption small" data-size="10">
+      <div class="title">Catalogo</div>
+    </div>
+    <div class="btnOption2 Cont" data-size="10">
+      <div class="title">Contacto</div>
+    </div>
+  </div>
+  </div>
+
+  <script type="module">
+    import { main,changeModel,changeTexture,changeTexture2,changeTexture3 } from './src/app.js';
+  
+    const options = document.querySelectorAll('.btnOption');
+    const content = document.querySelector('#content');
+    const backBtn = document.querySelector('#backBtn');
+    const btnModelOne = document.querySelector('.modelOne');
+    const btnModelTwo = document.querySelector('.modelTwo');
+    const btnModelThree = document.querySelector('.modelThree');
+    const btnModelFourth = document.querySelector('.modelFourth');
+    const btnTextureOne = document.querySelector('.textureOne');
+    const btnTextureTwo = document.querySelector('.textureTwo');
+    const btnTextureThree = document.querySelector('.textureThree');
+  
+  
+    options.forEach(optionSelected => {
+        optionSelected.onclick = function(){
+          toogleContent();
+          main();
+        }
+      });
+
+    backBtn.onclick = function(){
+    toogleContent();
+    reset();
+    }
+    
+    btnModelOne.onclick = function () {
+        changeModel('modelOne');
+    }
+  
+    btnModelTwo.onclick = function () {
+        changeModel('modelTwo');
+    }
+  
+    btnModelThree.onclick = function () {
+        changeModel('modeThree');
+    }
+  
+    btnModelFourth.onclick = function () {
+        changeModel('modelFourth');
+    }
+
+    btnTextureOne.onclick = function () {
+      changeTexture('modelOne');
+    }
+
+    btnTextureTwo.onclick = function () {
+      changeTexture2('modelOne');
+    }
+
+    btnTextureThree.onclick = function () {
+      changeTexture3('modelOne');
+    }
+  
+    function toogleContent (){
+      content.style.display = content.style.display == 'none' ? 'flex' : 'none';
+    }
+  </script>
+  
+  </body>
+  </html>

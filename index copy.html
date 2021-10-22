@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcial-2 Audi</title>
+  <script type="module" src="./src/app.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="backBtn">Volver</div>
+  <div id="contentModels">
+    <div class="btnOptionModels custom modelOne">
+      <img src="/assets/2019.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelTwo">
+      <img src="/assets/2021.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelThree">
+      <img src="/assets/2022png.png" width="200px">
+      <div class="title"></div>
+    </div>
+    <div class="btnOptionModels custom modelFourth">
+      <img src="/assets/2021.png" width="200px">
+      <div class="title"></div>
+    </div>
+  </div>
+  <div id="contentTexture">
+    <div class="btnOptionTexture custom textureOne">
+      <div class="title">Textura 1</div>
+    </div>
+    <div class="btnOptionTexture custom textureTwo">
+      <div class="title">Textura 2</div>
+    </div>
+    <div class="btnOptionTexture custom textureThree">
+      <div class="title">Textura 3</div>
+    </div>
+    <div id= "content"> 
+    <div class="btnOption small" data-size="10">
+      <div class="title">Catalogo</div>
+    </div>
+  </div>
+  </div>
+
+  <script type="module">
+    import { main,changeModel,changeTexture,changeTexture2,changeTexture3 } from './src/app.js';
+  
+    const options = document.querySelectorAll('.btnOption');
+    const content = document.querySelector('#content');
+    const backBtn = document.querySelector('#backBtn');
+    const btnModelOne = document.querySelector('.modelOne');
+    const btnModelTwo = document.querySelector('.modelTwo');
+    const btnModelThree = document.querySelector('.modelThree');
+    const btnModelFourth = document.querySelector('.modelFourth');
+    const btnTextureOne = document.querySelector('.textureOne');
+    const btnTextureTwo = document.querySelector('.textureTwo');
+    const btnTextureThree = document.querySelector('.textureThree');
+  
+  
+    options.forEach(optionSelected => {
+        optionSelected.onclick = function(){
+          toogleContent();
+          main();
+        }
+      });
+
+    backBtn.onclick = function(){
+    toogleContent();
+    cleanGUI();
+    reset();
+    window.location.reload()
+    }
+    
+    btnModelOne.onclick = function () {
+        changeModel('modelOne');
+    }
+  
+    btnModelTwo.onclick = function () {
+        changeModel('modelTwo');
+    }
+  
+    btnModelThree.onclick = function () {
+        changeModel('modeThree');
+    }
+  
+    btnModelFourth.onclick = function () {
+        changeModel('modelFourth');
+    }
+
+    btnTextureOne.onclick = function () {
+      changeTexture('modelOne');
+    }
+
+    btnTextureTwo.onclick = function () {
+      changeTexture2('modelOne');
+    }
+
+    btnTextureThree.onclick = function () {
+      changeTexture3('modelOne');
+    }
+  
+    function toogleContent (){
+      content.style.display = content.style.display == 'none' ? 'flex' : 'none';
+    }
+  </script>
+  
+  </body>
+  </html>
